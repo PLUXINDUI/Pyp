@@ -1,1 +1,1 @@
-int(input('Hello world!'))
+int(input('Hello world!')
