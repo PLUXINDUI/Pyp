@@ -1,14 +1,18 @@
-def read_file(file_name):
-    out = set()
-    with open(file_name, encoding='UTF-8', mode='r') as file:
-        for line in file:
-            [out.lower() for out in line.split()]
-    return out
+def read_file(filename):
+    out = {}
+    with open(filename, encoding='UTF-8', mode='r') as f:
+        words = (f.read().split(' '))
 
-def save_file(file_name, out):
-    with open (file_name, encoding='utf-8', mode='w') as f:
-        f.write(f'Количество уникальных слов: {len(out)}\n')
-        f.write('\n'.join(out))
+    for i in range(0, len(words)):
+        words[i] = words[i].lower()
+        words[i] = "".join(s for s in words[i] if s.isalpha())
 
-out = read_file("data.txt")
-save_file('count.txt', sorted(out))
+    out = set(words)
+
+    return list(out)
+
+def save_file(filename, words):
+    words = sorted(words)
+    with open(filename, encoding='utf-8', mode='w') as f:
+        f.write(f'Количество уникальных слов: ' + str(len(words)))
+        f.write('\n'.join(words))
