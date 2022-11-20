@@ -1,23 +1,24 @@
 def f(filename):
-    opened = False
     try:
         file = open(filename)
-        opened = True
         col = int(file.readline())
+        chisl = file.read().splitlines()
 
-        return [int(a) for a in [file.readline() for _ in range(col)]]
+        if len(chisl)>col:
+            raise Exception('Неправильное количество чисел')
+        chisl = [int(chisl[a]) for a in range(0, col)]
 
+        return chisl
     except FileNotFoundError:
         return 'Неправильное имя файла'
     except ValueError:
         return 'Неверное значение'
+    except Exception as osh:
+        return str(osh)
     except:
-        return 'Неопознанная ошибка'
-    # finally:
-    #     if opened:
-    #         file.close()
-
-
-filename = input('Введите имя файла: ')
-
-f(filename)
+        return 'Неизвестная ошибка'
+    finally:
+        try:
+            file.close()
+        except:
+            pass
