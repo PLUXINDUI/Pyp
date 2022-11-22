@@ -1,10 +1,17 @@
-def f(filename):
+from typing import Union
+
+
+def f(filename) -> Union[list, str]:
+    '''
+    :param filename: имя файла
+    :return: список чисел
+    '''
     try:
         file = open(filename)
-        col = int(file.readline())
-        chisl = file.read().splitlines()
+        col: int = int(file.readline())
+        chisl: list = file.read().splitlines()
 
-        if len(chisl)>col:
+        if len(chisl) > col:
             raise Exception('Неправильное количество чисел')
         chisl = [int(chisl[a]) for a in range(0, col)]
 
@@ -17,8 +24,3 @@ def f(filename):
         return str(osh)
     except:
         return 'Неизвестная ошибка'
-    finally:
-        try:
-            file.close()
-        except:
-            pass

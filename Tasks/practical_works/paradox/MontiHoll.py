@@ -1,12 +1,16 @@
 import random
 
-def hall(iterations):
-    count = 0
-    count_changed_choice = 0
+def hall(iterations: int) -> str:
+    '''
+    :param iterations: количество итерация для определения парадокса
+    :return: результат эскперемент
+    '''
+    count:int = 0
+    count_changed_choice:int = 0
 
-    for i in range(0, 10000):
+    for i in range(0, iterations):
         a = [0, 0, 1]
-        player_choice = random.choice(a)
+        player_choice: int = random.choice(a)
         if player_choice == 1:
             count += 1
         else:
@@ -14,5 +18,5 @@ def hall(iterations):
             a.remove(player_choice)
             if a[0] == 1:
                 count_changed_choice += 1
-    return f'не меняя выбор:{count} меняя выбор:{count_changed_choice} вероятность выиграша '\
+    return f'не меняя выбор:{count} меняя выбор:{count_changed_choice} вероятность выигрыша '\
            f'со своим выбором: {(count*100)/ (count + count_changed_choice)} %'

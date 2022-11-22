@@ -1,10 +1,15 @@
 import random
 
-def birthday(count, iterations=1000):
+def birthday(count:int, iterations=1000) -> str:
+    '''
+    :param count: количество людей
+    :param iterations: количество повторений
+    :return: результаты эксперемента
+    '''
     days = [day for day in range(0, 364)]
 
-    par = 0
-    ok = 0
+    par: int = 0
+    ok: int  = 0
 
     for it in range(0, iterations + 1):
         day_data = []
@@ -25,5 +30,5 @@ def birthday(count, iterations=1000):
 
     return f'совпадения: {par} ' \
            f'не совпадения: {ok} ' \
-           f'вероятность: {(par*100)/ (ok+par)}'
+           f'вероятность: {(par*100)/ (ok+par)}%'
 
