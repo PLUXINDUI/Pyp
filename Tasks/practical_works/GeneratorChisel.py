@@ -1,11 +1,11 @@
 import random
 
-lives = 3
-count = 0
+lives: int = 3
+count: int = 0
 
 while True:
-    n1 = random.randint(0, 100)
-    n2 = random.randint(0, 100)
+    n1: int = random.randint(0, 100)
+    n2: int = random.randint(0, 100)
     operator = random.randint(0, 4)
 
     player_answer = 0

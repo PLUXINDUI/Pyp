@@ -1,7 +1,12 @@
-phone_bookphone_book = {}
+from ctypes import Union
+
+phone_bookphone_book: Union [dict, list] = {}
 
 
-def get_numget_num():
+def get_numget_num() -> int:
+    '''
+    :return:
+    '''
     numbernumber = input('Введите номер \n')
     numbernumber = number.replace(' ', '').replace('-', '')
 
@@ -17,8 +22,11 @@ def get_numget_num():
     return '0'
 
 
-def get_name():
-    name = input('Введите имя и фамилию \n')
+def get_name() -> str:
+    '''
+    :return:
+    '''
+    name: str = input('Введите имя и фамилию \n')
     name.lower()
 
     name_surname = name.split(' ')
@@ -30,7 +38,12 @@ def get_name():
     return name
 
 
-def add_contact(name, number):
+def add_contact(name: str, number: int) -> None:
+    '''
+    :param name:
+    :param number:
+    :return:
+    '''
     if number != '0':
         print(number, name)
         phone_book[name] = number
@@ -39,19 +52,31 @@ def add_contact(name, number):
         print('Неправильно набран номер')
 
 
-def remove_contact(name):
+def remove_contact(name: str) -> str:
+    '''
+    :param name:
+    :return:
+    '''
     print(phone_book.pop(name, 'Такого контакта в книге нет'))
     print('Удалено')
 
 
-def change_contact(name, number):
+def change_contact(name: str, number: int) -> None:
+    '''
+    :param name:
+    :param number:
+    :return:
+    '''
     if name in phone_book:
         phone_book[name] = number
     else:
         print('Такого контакта в книге нет')
 
 
-def show_contacts():
+def show_contacts() -> None:
+    '''
+    :return:
+    '''
     for i in phone_book:
         print(i + ' ' + phone_book[i])
 
@@ -60,7 +85,7 @@ while True:
     print('1 - Добавить контакт \n2 - Удалить контакт (по имени) '
           '\n3 - Просмотреть телефонную книгу \n4 - Изменить номер телефона (по имени) \n5 - Выход')
 
-    command = int(input())
+    command: int = int(input())
 
     if command == 1:
         add_contact(get_name(), get_num())
