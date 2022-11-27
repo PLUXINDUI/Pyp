@@ -1,5 +1,5 @@
 words = input().split(' ')
-stroka = ''
+stroka = ""
 
 for word in words:
     print(stroka.count(word), end = " ")
