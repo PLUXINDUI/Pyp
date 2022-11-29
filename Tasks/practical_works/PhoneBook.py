@@ -5,7 +5,7 @@ phone_bookphone_book: Union [dict, list] = {}
 
 def get_numget_num() -> int:
     '''
-    :return:
+    :return: номер
     '''
     numbernumber = input('Введите номер \n')
     numbernumber = number.replace(' ', '').replace('-', '')
@@ -24,7 +24,7 @@ def get_numget_num() -> int:
 
 def get_name() -> str:
     '''
-    :return:
+    :return: Имя
     '''
     name: str = input('Введите имя и фамилию \n')
     name.lower()
@@ -40,9 +40,9 @@ def get_name() -> str:
 
 def add_contact(name: str, number: int) -> None:
     '''
-    :param name:
-    :param number:
-    :return:
+    :param name: Имя
+    :param number: Номер
+    :return: Добавляет конктакт
     '''
     if number != '0':
         print(number, name)
@@ -54,8 +54,8 @@ def add_contact(name: str, number: int) -> None:
 
 def remove_contact(name: str) -> str:
     '''
-    :param name:
-    :return:
+    :param name: Имя
+    :return: Удаляет контакт
     '''
     print(phone_book.pop(name, 'Такого контакта в книге нет'))
     print('Удалено')
@@ -63,9 +63,9 @@ def remove_contact(name: str) -> str:
 
 def change_contact(name: str, number: int) -> None:
     '''
-    :param name:
-    :param number:
-    :return:
+    :param name: имя
+    :param number: номер
+    :return: Изменяет данные контакта
     '''
     if name in phone_book:
         phone_book[name] = number
@@ -75,7 +75,7 @@ def change_contact(name: str, number: int) -> None:
 
 def show_contacts() -> None:
     '''
-    :return:
+    :return: Показывает телефонную книгу
     '''
     for i in phone_book:
         print(i + ' ' + phone_book[i])
