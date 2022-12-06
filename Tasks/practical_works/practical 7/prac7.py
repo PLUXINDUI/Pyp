@@ -1,4 +1,7 @@
-def get_books(name: str) -> list[tuple[str, str, str, int, float]]:
+from typing import List, Tuple
+
+
+def get_books(name: str) -> List[Tuple[str, str, str, int, float]]:
     books: list = []
     name: str = name.lower()
     with open('books.csv', "r", encoding='utf-8') as f:
@@ -10,10 +13,10 @@ def get_books(name: str) -> list[tuple[str, str, str, int, float]]:
     return books
 
 
-def get_totals(books: list[tuple[str, str, str, int, float]]) -> list[tuple[str, float]]:
+def get_totals(books: List[Tuple[str, str, str, int, float]]) -> List[Tuple[str, float]]:
     plusprice: list = []
     for book in books:
-        price: int = book[3] * book[4]
+        price = book[3] * book[4]
         if price >= 500:
             plusprice.append((book[0], price))
         else:
@@ -21,5 +24,5 @@ def get_totals(books: list[tuple[str, str, str, int, float]]) -> list[tuple[str,
     return plusprice
 
 
-print((get_books('ajax')))
-print(get_totals(get_books('ajax')))
+print((get_books('python')))
+print(get_totals(get_books('python')))
