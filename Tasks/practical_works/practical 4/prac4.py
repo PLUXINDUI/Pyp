@@ -21,5 +21,5 @@ def save_file(filename: str, words: list) -> None:
     '''
     words: list = sorted(words)
     with open(filename, encoding='utf-8', mode='w') as f:
-        f.write(f'Количество уникальных слов: ' + str(len(words)))
+        f.write(f'Количество уникальных слов: ' + str(len(words)) + '\n')
         f.write('\n'.join(words))
