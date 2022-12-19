@@ -8,3 +8,4 @@ for i in range(0, int(input('Количество строк со словами
 
 for key in sorted(slova, key=slova.get, reverse=True):
     print(key, slova[key])
+
