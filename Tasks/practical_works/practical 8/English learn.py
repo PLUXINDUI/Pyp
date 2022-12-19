@@ -10,8 +10,7 @@ en_translator = translate.Translator(from_lang='ru', to_lang='en')
 
 def get_english_phrasebook(file_name: str) -> None:
     '''
-    :param file_name:
-    :return:
+    :param file_name: название файла, в который нужно записывать итоговый словарь
     '''
     with open(file_name, encoding='utf-8') as file:
         list = file.read().split()
@@ -20,9 +19,9 @@ def get_english_phrasebook(file_name: str) -> None:
 
 def write_dict_to_file(file_name: str, book: dict) -> None:
     '''
-    :param file_name:
-    :param book:
-    :return:
+    Функция переводит слова и записывает их в итоговый словарь
+    :param file_name: название файла, в который нужно записывать итоговый словарь
+    :param book: словарь, в котором хранятся слова
     '''
     with open(file_name, encoding='utf-8', mode='w') as file:
         for word in book:
@@ -32,8 +31,9 @@ def write_dict_to_file(file_name: str, book: dict) -> None:
 
 def get_sorted_dict(words: list) -> Dict[Any, Any]:
     '''
-    :param words:
-    :return:
+    Функция считает кол-во упоминаний каждого слова и сортирует словарь по убыванию частоты использования слов
+    :param words: список из слов
+    :return: сортированный словарь
     '''
     output = {}
     for word in words:
@@ -43,8 +43,9 @@ def get_sorted_dict(words: list) -> Dict[Any, Any]:
 
 def normalize_words_list(words_list: list) -> list:
     '''
-    :param words_list:
-    :return:
+    Функция добавляет в список отформатированные слова, отбросив все ненужные символы
+    :param words_list: список неформатированных слов
+    :return: список из отформатированных слов
     '''
     for i in range(0, len(words_list)):
         words_list[i] = "".join(a for a in words_list[i] if a.isalpha())
